@@ -77,7 +77,7 @@ const LawFirmLanding = () => {
             <div className="flex items-center space-x-2">
               <Scale className="h-8 w-8 text-amber-600" />
               <span className="text-xl font-bold text-gray-900">
-                Cristine Andraus Fillardi{" "}
+                Cristine Andraus Filardi{" "}
               </span>
             </div>
 
@@ -183,41 +183,44 @@ const LawFirmLanding = () => {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section
-        id="inicio"
-        className="relative h-screen flex items-center justify-center"
-      >
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${images.hero})`,
-          }}
-        ></div>
-        <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
-          <div className="mb-8">
-            <Scale className="h-20 w-20 text-amber-400 mx-auto mb-4" />
-          </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Seja bem-vindo a Cristine e Associados, estamos aqui para te ajudar
-            com Aposentadorias!
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-200">
-            Especialistas em Direito Previdenciário com mais de 20 anos de
-            experiência
-          </p>
-          <button className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 shadow-lg">
-            Agende sua Consulta
-          </button>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
-          </div>
-        </div>
-      </section>
+     {/* Hero Section */}
+<section
+  id="inicio"
+  className="relative h-screen flex items-center justify-center"
+>
+  <div
+    className="absolute inset-0 bg-cover bg-center"
+    style={{
+      backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${images.hero})`,
+    }}
+  ></div>
+  
+  {/* Logo no canto superior esquerdo */}
+  <div className="absolute top-6 left-6 z-30">
+    <img 
+      src="/images/hero/logo-header.png" 
+      alt="Cristine e Associados Logo" 
+      className="h-25 w-[120px] md:h-30 mt-12"
+    />
+  </div>
+  
+  <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
+    <div className="mb-8">
+      <Scale className="h-20 w-20 text-amber-400 mx-auto mb-4" />
+    </div>
+    <h1 className="text-2xl md:text-2xl font-bold mb-6 leading-tight">
+      Seja bem-vindo a Cristine e Associados, estamos aqui para te ajudar
+      com Aposentadorias!
+    </h1>
+    <p className="text-xl md:text-2xl mb-8 text-gray-200">
+      Especialistas em Direito Previdenciário com mais de 20 anos de
+      experiência
+    </p>
+    <button className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 shadow-lg">
+      Agende sua Consulta
+    </button>
+  </div>
+</section>
 
       {/* About Section */}
       <section id="sobre" className="py-20 bg-gray-50">
@@ -411,7 +414,7 @@ const LawFirmLanding = () => {
                 className="w-48 h-48 rounded-full mx-auto mb-6 object-cover shadow-lg"
               />
               <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                Cristine Andraus Fillardi
+                Cristine Andraus Filardi
               </h3>
               <p className="text-amber-600 font-semibold mb-4">
                 Advogado Principal
@@ -590,74 +593,77 @@ const LawFirmLanding = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <Scale className="h-8 w-8 text-amber-600" />
-                <span className="text-xl font-bold">
-                  {" "}
-                  Cristine Andraus Fillardi
-                </span>
-              </div>
-              <p className="text-gray-400 leading-relaxed">
-                Especialistas em Direito Previdenciário com mais de 20 anos de
-                experiência, oferecendo soluções jurídicas eficazes para seus
-                clientes.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Links Rápidos</h3>
-              <div className="space-y-2">
-                <a
-                  href="#inicio"
-                  className="block text-gray-400 hover:text-amber-600 transition-colors"
-                >
-                  Início
-                </a>
-                <a
-                  href="#sobre"
-                  className="block text-gray-400 hover:text-amber-600 transition-colors"
-                >
-                  Sobre
-                </a>
-                <a
-                  href="#servicos"
-                  className="block text-gray-400 hover:text-amber-600 transition-colors"
-                >
-                  Serviços
-                </a>
-                <a
-                  href="#equipe"
-                  className="block text-gray-400 hover:text-amber-600 transition-colors"
-                >
-                  Equipe
-                </a>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Contato</h3>
-              <div className="space-y-2 text-gray-400">
-                <p>Av. Paulista, 693</p>
-                <p>Araçatuba/SP - CEP: 16018-200</p>
-                <p>(18) 3621-00-74</p>
-                <p>ruyvasconcelos@uol.com.br</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>
-              &copy; 2025 Cristine Andraus Fillardi - Todos os direitos
-              reservados.
-            </p>
-          </div>
+<footer className="bg-gray-900 text-white py-12">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid md:grid-cols-3 gap-8">
+      <div>
+        <div className="flex items-center space-x-2 mb-4">
+          {/* Logo no footer */}
+          <img 
+            src="/images/hero/andraus-footer.png" 
+            alt="Cristine Andraus Filardi Logo" 
+            className="h-[80px] w-[80px]"
+          />
+          <span className="text-xl font-bold">
+            Cristine Andraus Filardi
+          </span>
         </div>
-      
-      </footer>
+        <p className="text-gray-400 leading-relaxed">
+          Especialistas em Direito Previdenciário com mais de 20 anos de
+          experiência, oferecendo soluções jurídicas eficazes para seus
+          clientes.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="text-lg font-semibold mb-4">Links Rápidos</h3>
+        <div className="space-y-2">
+          <a
+            href="#inicio"
+            className="block text-gray-400 hover:text-amber-600 transition-colors"
+          >
+            Início
+          </a>
+          <a
+            href="#sobre"
+            className="block text-gray-400 hover:text-amber-600 transition-colors"
+          >
+            Sobre
+          </a>
+          <a
+            href="#servicos"
+            className="block text-gray-400 hover:text-amber-600 transition-colors"
+          >
+            Serviços
+          </a>
+          <a
+            href="#equipe"
+            className="block text-gray-400 hover:text-amber-600 transition-colors"
+          >
+            Equipe
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3 className="text-lg font-semibold mb-4">Contato</h3>
+        <div className="space-y-2 text-gray-400">
+          <p>Av. Paulista, 693</p>
+          <p>Araçatuba/SP - CEP: 16018-200</p>
+          <p>(18) 3621-00-74</p>
+          <p>ruyvasconcelos@uol.com.br</p>
+        </div>
+      </div>
+    </div>
+
+    <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+      <p>
+        &copy; 2025 Cristine Andraus Filardi - Todos os direitos
+        reservados.
+      </p>
+    </div>
+  </div>
+</footer>
 
       {/* WhatsApp Float Button */}
       <a
