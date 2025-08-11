@@ -55,7 +55,7 @@ const products: Product[] = [
   }
 ];
 
-export default function RezaVelaEnhanced(): JSX.Element {
+export default function RezaVelaEnhanced() {
   const [current, setCurrent] = useState<number>(0);
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const [activeProduct, setActiveProduct] = useState<number | null>(null);
