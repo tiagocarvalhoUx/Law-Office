@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 
 // Enhanced Reza Vela Landing Page with Modern UI/UX
 // TypeScript + Tailwind CSS with glassmorphism, animations, and premium feel
@@ -586,7 +586,7 @@ export default function RezaVelaEnhanced(): JSX.Element {
       </div>
 
       {/* Custom CSS for animations */}
-      <style jsx>{`
+      <style>{`
         @keyframes gradient {
           0%, 100% { background-position: 0% 50%; }
           50% { background-position: 100% 50%; }
