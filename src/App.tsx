@@ -1,7 +1,5 @@
-import  { useEffect, useState } from "react";
-
-// Enhanced Reza Vela Landing Page with Modern UI/UX
-// TypeScript + Tailwind CSS with glassmorphism, animations, and premium feel
+import { useEffect, useState } from "react";
+import logo from "../public/images/reza-vela 1.png"
 
 type Image = {
   id: number;
@@ -60,6 +58,7 @@ export default function RezaVelaEnhanced() {
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const [activeProduct, setActiveProduct] = useState<number | null>(null);
   const [scrollY, setScrollY] = useState<number>(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
   // Animations and scroll effects
   useEffect(() => {
@@ -68,6 +67,19 @@ export default function RezaVelaEnhanced() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [mobileMenuOpen]);
 
   // Enhanced carousel with smoother transitions
   useEffect(() => {
@@ -81,20 +93,23 @@ export default function RezaVelaEnhanced() {
   const whatsappMessage = encodeURIComponent("Olá! 🕯️ Gostaria de conhecer as velas artesanais Reza Vela");
   const whatsappLink = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, "")}?text=${whatsappMessage}`;
 
+ 
   return (
+    
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 text-gray-900 antialiased overflow-x-hidden">
       {/* Enhanced Navigation with Glassmorphism */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-xl border-b border-white/20 shadow-lg">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4 group">
-              <div className="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-400 via-orange-400 to-amber-600 flex items-center justify-center shadow-xl group-hover:shadow-2xl transition-all duration-500 group-hover:scale-105">
-                {/* Enhanced logo with flame animation */}
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" className="drop-shadow-sm">
-                  <path d="M12 2L12 20" stroke="white" strokeWidth="2.5" strokeLinecap="round" className="animate-pulse"/>
-                  <circle cx="12" cy="7" r="3.5" fill="rgba(255,255,255,0.9)" className="animate-bounce" style={{animationDuration: '3s'}}/>
-                </svg>
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-yellow-400/20 to-transparent animate-ping"></div>
+        <div className="relative w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center shadow-xl group-hover:shadow-2xl transition-all duration-500 group-hover:scale-105">
+                {/* Reza Vela Logo */}
+                <img 
+                  src={logo} 
+                  alt="Reza Vela Logo" 
+                  className="w-20 h-20 object-contain drop-shadow-sm"
+                />
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-orange-400/20 to-transparent animate-ping"></div>
               </div>
               <div>
                 <h1 className="font-bold text-2xl bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
@@ -123,11 +138,45 @@ export default function RezaVelaEnhanced() {
               </a>
             </nav>
 
-            <button className="md:hidden p-3 rounded-xl bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-gray-700">
-                <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-              </svg>
-            </button>
+            {/* Botão hambúrguer */}
+<button 
+  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+  className="md:hidden p-3 rounded-xl bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300"
+  aria-label="Abrir menu"
+>
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-gray-700">
+    {mobileMenuOpen ? (
+      <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    ) : (
+      <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    )}
+  </svg>
+</button>
+
+{/* Menu mobile - NOVO */}
+{mobileMenuOpen && (
+  <div className="absolute top-full left-0 w-full bg-white/95 backdrop-blur-md shadow-xl border-t border-gray-200 md:hidden z-50">
+    <nav className="px-6 py-4 space-y-4">
+      {['Produtos', 'Processo', 'Sobre'].map((item) => (
+        <a
+          key={item}
+          href={`#${item.toLowerCase()}`}
+          onClick={() => setMobileMenuOpen(false)} // Fecha o menu ao clicar
+          className="block text-base font-medium text-gray-700 hover:text-amber-600 transition-all duration-300 py-2 border-b border-gray-100 last:border-b-0"
+        >
+          {item}
+        </a>
+      ))}
+      <a
+        href="#contato"
+        onClick={() => setMobileMenuOpen(false)} // Fecha o menu ao clicar
+        className="block bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white px-6 py-3 rounded-full text-sm font-semibold shadow-lg hover:shadow-xl transition-all duration-300 text-center mt-4"
+      >
+        Comprar Agora
+      </a>
+    </nav>
+  </div>
+)}
           </div>
         </div>
       </header>
@@ -516,11 +565,14 @@ export default function RezaVelaEnhanced() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 2L12 20" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                  <circle cx="12" cy="7" r="3" fill="white" opacity="0.9"/>
-                </svg>
+               <div className="relative w-14 h-10 rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center shadow-xl group-hover:shadow-2xl transition-all duration-500 group-hover:scale-105">
+                {/* Reza Vela Logo */}
+                <img 
+                  src={logo} 
+                  alt="Reza Vela Logo" 
+                  className="w-15  h-15 object-contain drop-shadow-sm"
+                />
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-orange-400/20 to-transparent animate-ping"></div>
               </div>
               <div>
                 <div className="font-bold text-lg">Reza Vela</div>
