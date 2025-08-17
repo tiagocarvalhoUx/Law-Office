@@ -1,6 +1,21 @@
 import { useEffect, useState } from "react";
 import logo from "../public/images/reza-vela 1.png"
 
+// Importação das imagens do carrossel
+import image1 from "../src/assets/images/vela1.png"
+import image2 from "../src/assets/images/vela2.png"
+import image3 from "../src/assets/images/vela3.png"
+import image4 from "../src/assets/images/vela4.png"
+import image5 from "../src/assets/images/vela5.png"
+import image6 from "../src/assets/images/vela6.png"
+import image7 from "../src/assets/images/vela7.png"
+
+// Importação das imagens dos produtos
+
+
+// Importação da imagem do processo
+
+
 type Image = {
   id: number;
   src: string;
@@ -17,10 +32,25 @@ type Product = {
   features: string[];
 };
 
+// Array de imagens usando as importações
 const images: Image[] = [
-  { id: 1, src: "/images/candle-1.jpg", alt: "Vela aromática - lavanda" },
-  { id: 2, src: "/images/candle-2.jpg", alt: "Vela ritualística com ervas" },
-  { id: 3, src: "/images/candle-3.jpg", alt: "Coleção Reza Vela" },
+  { 
+    id: 1, 
+    src: image1, 
+    alt: "Reza Vela - Flor de Laranjeira (Vela de Soja)" 
+  },
+  { 
+    id: 2, 
+    src: image2, 
+    alt: "Reza Vela - Lichia (Vela de Soja Pavio de Madeira)" 
+  },
+
+  { 
+    id: 4, 
+    src: image4, 
+    alt: "Reza Vela - Arruda com Cristais de Sal" 
+  },
+  
 ];
 
 const products: Product[] = [
@@ -29,7 +59,7 @@ const products: Product[] = [
     name: "Lavanda • Calm",
     description: "Acalma o ambiente com lavanda pura e camomila selvagem",
     price: "49,90",
-    image: "/images/prod-1.jpg",
+    image: '',
     category: "aromática",
     features: ["Cera de soja", "Pavio de algodão", "8h de queima"]
   },
@@ -38,7 +68,7 @@ const products: Product[] = [
     name: "Ritual • Purificação",
     description: "Blend sagrado de ervas e especiarias para proteção",
     price: "69,90",
-    image: "/images/prod-2.jpg",
+    image: '',
     category: "ritual",
     features: ["Cera de coco", "Pavio de madeira", "12h de queima"]
   },
@@ -47,7 +77,7 @@ const products: Product[] = [
     name: "Especiarias • Aconchego",
     description: "Notas quentes de canela, cravo e baunilha bourbon",
     price: "59,90",
-    image: "/images/prod-3.jpg",
+    image: '',
     category: "especial",
     features: ["Mistura vegetal", "Pavio de algodão", "10h de queima"]
   }
@@ -89,7 +119,7 @@ export default function RezaVelaEnhanced() {
     return () => clearInterval(id);
   }, []);
 
-  const whatsappNumber = "+55YOURNUMBER";
+  const whatsappNumber = "+5518998152347";
   const whatsappMessage = encodeURIComponent("Olá! 🕯️ Gostaria de conhecer as velas artesanais Reza Vela");
   const whatsappLink = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, "")}?text=${whatsappMessage}`;
 
@@ -343,7 +373,7 @@ export default function RezaVelaEnhanced() {
                 >
                   <div className="relative mb-6 rounded-2xl overflow-hidden">
                     <img
-                      src={product.image}
+                      src={idx % 3 === 0 ? image3 : idx % 3 === 1 ? image5 : image6}
                       alt={product.name}
                       className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                     />
@@ -461,7 +491,7 @@ export default function RezaVelaEnhanced() {
               <div className="relative">
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                   <img
-                    src="/images/process.jpg"
+                    src={image7}
                     alt="Processo artesanal"
                     className="w-full h-[600px] object-cover"
                   />
